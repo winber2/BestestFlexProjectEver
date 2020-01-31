@@ -1,0 +1,227 @@
+main.index-main {
+  width: 100%;
+  height: 500px;
+  background: #010023; /* Old browsers */
+  background: -moz-linear-gradient(left, #010023 0%, #010028 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #010023 0%,#010028 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #010023 0%,#010028 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+main.index-main img {
+  height: 100%;
+}
+
+div.error {
+  text-align: center;
+}
+
+h1.error-page {
+  padding: 10px;
+}
+
+div.index-content {
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('http://i1096.photobucket.com/albums/g327/winber1/header2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div.index-content h1 {
+  font-size: 80px;
+  font-family: Poiret One;
+  margin-bottom: 20px;
+}
+
+div.index-content span {
+  width: 350px;
+  font-size: 22px;
+  text-align: center;
+  font-family: Poiret One;
+
+}
+
+section.index-algo-display {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  width: 100%;
+  max-width: 1200px;
+  min-width: 600px;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+ul.index-algo-list {
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+}
+
+div.index-algo-image {
+  height: 270px;
+  width: 270px;
+  min-width: 270px;
+  margin-right: 35px;
+  border: 1.5px solid #eaeaea;
+  border-radius: 4px;
+  outline: none;
+  position: relative;
+}
+
+div.index-algo-image:last-child {
+  margin-right: 0;
+}
+
+div.index-algo-image:hover {
+  border: 1.5px solid #44A7C3;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+div.index-arrow-fill {
+  width: 0;
+  height: 0;
+  border-left: 22px solid transparent;
+  border-right: 22px solid transparent;
+  border-bottom: 22px solid white;
+  position: absolute;
+  top: 3px;
+  left: -22px;
+}
+
+div.index-arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid #eaeaea;
+  position: relative;
+  top: 2px;
+}
+
+div.index-arrow-up.first {
+  left: 115px;
+  transition: left 0.7s;
+}
+
+div.index-arrow-up.second {
+  left: 420px;
+  transition: left 0.7s;
+}
+
+div.index-arrow-up.third {
+  left: 725px;
+  transition: left 0.7s;
+}
+
+div.index-arrow-up.fourth {
+  left: 1035px;
+  transition: left 0.7s;
+}
+
+div.index-algo-description {
+  border: 1.5px solid #eaeaea;
+  border-radius: 4px;
+  min-height: 250px;
+  /*margin: 0 30px;*/
+  background: white;
+}
+
+div.index-algo-description section {
+  margin: 10px 15px;
+  font-size: 12pt;
+  transition: opacity 0.2s
+}
+
+div.index-algo-description p {
+  font-size: 18px;
+  transition: opacity 0.2s
+}
+
+div.index-algo-image h2 {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
+
+section.into-the-abyss {
+  opacity: 0;;
+}
+
+
+footer {
+  position: relative;
+  z-index: 999;
+  height: 150px;
+  background: #010023;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -1px -2px 5px #010023;
+}
+
+ul.author-info {
+  display: flex;
+  color: white;
+  width: 500px;
+  justify-content: space-between;
+}
+
+ul.author-info li {
+  /*display: flex;
+  flex-direction: column;*/
+  text-align: center;
+  width: 120px;
+
+  align-items: center;
+}
+
+ul.author-info li span {
+  margin: 0;
+  font-size: 14px;
+  font-family: Quicksand;
+}
+
+h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+figure.github {
+  background-image: url('../images/github-icon.png');
+  background-size: contain;
+  display: inline-block;
+  margin: 0;
+  height: 40px;
+  width: 40px;
+}
+
+figure.linkedin {
+  background-image: url('../images/linkedin.png');
+  background-size: contain;
+  display: inline-block;
+  margin: 0 0 0 10px;
+  height: 40px;
+  width: 40px;
+}
+
+figure.linkedin:hover {
+  cursor: pointer;
+  background-color: #383769;
+  border-radius: 5px;
+}
+
+figure.github:hover {
+  cursor: pointer;
+  background-color: #383769;
+  border-radius: 50%;
+}

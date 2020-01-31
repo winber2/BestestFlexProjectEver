@@ -1,0 +1,6 @@
+node_modules/
+assets/bundles/
+*.pyc
+*.pyo
+__pycache__/
+webpack-stats.json
