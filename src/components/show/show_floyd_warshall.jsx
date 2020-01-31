@@ -23,7 +23,7 @@ class ShowFloyd extends React.Component {
     visual.draw();
     this.setState({ graph: visual });
     this.floyd = new FloydWarshallSteps(NODELIST2, 1, 8, visual);
-    this.fetchCode('static/javascript/floyd_warshall.js');
+    this.fetchCode('javascript/floyd_warshall.js');
   }
 
   componentWillUnmount() {
@@ -48,15 +48,15 @@ class ShowFloyd extends React.Component {
   handleKeyPress (e) {
     if (e.keyCode === 37){
       this.floyd.stepBackward();
-      document.getElementById("arrow_left").style.backgroundImage = "url('/static/images/arrow_blue.png')";
+      document.getElementById("arrow_left").style.backgroundImage = "url('/images/arrow_blue.png')";
     } else if (e.keyCode === 39){
       this.floyd.stepForward();
-      document.getElementById("arrow_right").style.backgroundImage = "url('/static/images/arrow_blue.png')";
+      document.getElementById("arrow_right").style.backgroundImage = "url('/images/arrow_blue.png')";
     }
   }
   handleKeyUp (e) {
-    document.getElementById("arrow_left").style.backgroundImage = "url('/static/images/arrow_gray.png')";
-    document.getElementById("arrow_right").style.backgroundImage = "url('/static/images/arrow_gray.png')";
+    document.getElementById("arrow_left").style.backgroundImage = "url('/images/arrow_gray.png')";
+    document.getElementById("arrow_right").style.backgroundImage = "url('/images/arrow_gray.png')";
   }
 
   handleClickLeft(e) {

@@ -1,36 +1,77 @@
-var path = require("path")
-var webpack = require('webpack')
-var BundleTracker = require('webpack-bundle-tracker')
+const webpack = require('webpack');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = {
-  context: __dirname,
+const BUILD_DIR = path.resolve(__dirname, 'public');
+const APP_DIR = path.resolve(__dirname, 'src');
+const STATIC_DIR = path.resolve(__dirname, 'static');
 
-  entry: './assets/js/algomapper', // entry point of our app. assets/js/index.js should require other js modules and dependencies it needs
-
-  output: {
-      path: path.resolve('./assets/bundles/'),
-      filename: "[name]-[hash].js",
+const config = {
+  entry: {
+    index: `${APP_DIR}/index.jsx`,
   },
-
+  output: {
+    path: BUILD_DIR,
+    filename: '[name].[hash].js',
+  },
   plugins: [
-    new BundleTracker({filename: './webpack-stats.json'}),
+    new CleanWebpackPlugin([BUILD_DIR], { watch: true }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: `${APP_DIR}/index.html`,
+      filename: `${BUILD_DIR}/index.html`,
+    }),
+    new CopyWebpackPlugin([{ from: STATIC_DIR, BUILD_DIR }]),
   ],
-
   module: {
-    loaders: [
-      { test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader', // to transform JSX into JS
-        query:
-        {
-          presets:['react', 'es2015', 'stage-1']
-        }
-      }
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            query: {
+              modules: true,
+              localIdentName: '[local]',
+            },
+          },
+          { loader: 'sass-loader' },
+        ],
+      },
+      {
+        include: APP_DIR,
+        exclude: /(node_modules)/,
+        test: /\.(js|jsx)$/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react', 'stage-2'],
+        },
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        loader: 'url-loader',
+      },
     ],
   },
-
-  resolve: {
-    modulesDirectories: ['node_modules', 'bower_components'],
-    extensions: ['', '.js', '.jsx']
+  devServer: {
+    contentBase: path.join(__dirname, BUILD_DIR),
+    port: 3000,
+    compress: true,
   },
-}
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    modules: ['node_modules', path.resolve(__dirname, './src')],
+  },
+  mode: 'development',
+  devtool: 'cheap-module-source-map',
+};
+
+module.exports = config;

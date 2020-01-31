@@ -26,7 +26,7 @@ class ShowBellmanFord extends React.Component {
     visual.draw();
     this.setState({ graph: visual});
     this.algorithm = new BellmanFordSteps(NODELIST2, 1, 8, visual);
-    this.fetchCode('static/javascript/bellman_ford.js');
+    this.fetchCode('javascript/bellman_ford.js');
   }
 
   componentWillUnmount() {
@@ -50,15 +50,15 @@ class ShowBellmanFord extends React.Component {
   handleKeyPress (e) {
     if (e.keyCode === 37){
       this.algorithm.stepBackward();
-      document.getElementById("arrow_left").style.backgroundImage = "url('/static/images/arrow_blue.png')";
+      document.getElementById("arrow_left").style.backgroundImage = "url('/images/arrow_blue.png')";
     } else if (e.keyCode === 39){
       this.algorithm.stepForward();
-      document.getElementById("arrow_right").style.backgroundImage = "url('/static/images/arrow_blue.png')";
+      document.getElementById("arrow_right").style.backgroundImage = "url('/images/arrow_blue.png')";
     }
   }
   handleKeyUp (e) {
-    document.getElementById("arrow_left").style.backgroundImage = "url('/static/images/arrow_gray.png')";
-    document.getElementById("arrow_right").style.backgroundImage = "url('/static/images/arrow_gray.png')";
+    document.getElementById("arrow_left").style.backgroundImage = "url('/images/arrow_gray.png')";
+    document.getElementById("arrow_right").style.backgroundImage = "url('/images/arrow_gray.png')";
   }
 
   handleClickLeft(e) {
