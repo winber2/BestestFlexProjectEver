@@ -1,3 +1,5 @@
+Really old repo that i decided to just make work for some educational purposes, albeit the code is absolutely awful
+
 ## Algo-Mapper
 
 ### Summary
